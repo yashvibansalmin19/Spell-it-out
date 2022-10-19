@@ -2,7 +2,7 @@ let speech = new SpeechSynthesisUtterance();
 speech.lang = "en";
 
 var word;
-
+var score;
 var Name = window.prompt("Enter your name");
 
 fetch('http://localhost:5400/getword')
@@ -22,11 +22,30 @@ document.querySelector("#submit").addEventListener("click", () => {
     var answerInput = document.getElementById("answerText").value;
     console.log("answer : " + answerInput);
     console.log("word : " + word);
-
+    var wordAvailable = ['rock', 'paper', 'scissors', 'lamp', 'curtain', 'pillow'];
 
     if (word == answerInput) {
-        score++;
-        console.log("Congratulations!");
+        // var index = wordAvailable.indexOf(word);
+        // delete wordAvailable[index];
+        fetch('http://localhost:5400/rightAns', {
+
+            // Adding method type
+            method: "POST",
+
+            // Adding body or contents to send
+            body: JSON.stringify({
+                word: word,
+                username: Name,
+                userscore: score,
+            }),
+
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+
+        })
+
     }
     else {
         var check = true;
@@ -52,16 +71,34 @@ document.querySelector("#submit").addEventListener("click", () => {
 
             // Displaying results to console
             .then(json => {
+                console.log(json);
                 if (json["attempts"] >= 3) {
                     check = false;
+                }
+                else {
+                    window.alert("Wrong Ans! Please try again");
                 }
             });
 
         if (!check) {
-            window
+            window.openForm();
         }
     }
 
 });
+
+function openForm() {
+    document.getElementById("GameOver").style.display = "block";
+}
+function closeForm() {
+    document.getElementById("GameOver").style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    let modal = document.getElementById('GameOver');
+    if (event.target == modal) {
+        closeForm();
+    }
+}
 
 

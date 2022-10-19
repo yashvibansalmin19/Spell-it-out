@@ -6,16 +6,17 @@
 
 .column1 img {
 
-    margin-left: 10px;
-    align-items: center;
+    margin: auto;
     width: 100vh;
-    height: 100vh;
-    padding: 10px;
+    height: 70vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
 }
 
 .row1 {
-    align-content: center;
     height: 100px;
+    padding: auto;
 }
 
 .main-container {
@@ -45,9 +46,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
 .container {
-    position: relative;
+    margin: auto;
     width: 350px;
-    height: 500px;
+    height: 400px;
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
@@ -56,7 +57,6 @@
 }
 
 .inputs {
-    text-align: left;
     margin-top: 30px;
 }
 
@@ -65,19 +65,26 @@ input,
 button {
     display: block;
     width: 100%;
-    padding: 0;
+    /* padding: 10px; */
     border: none;
     outline: none;
     box-sizing: border-box;
 }
 
 label {
-    margin-bottom: 4px;
-    font-family: poppins;
+    /* display: block; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    /* text-align: center; */
+    display: inline-block;
+    text-align: left;
 }
 
 label:nth-of-type(2) {
-    margin-top: 12px;
+    margin-top: 30px;
 }
 
 input::placeholder {
@@ -86,22 +93,24 @@ input::placeholder {
 
 input {
     background: #ecf0f3;
-    padding: 10px;
-    padding-left: 20px;
+    padding: 30px;
     height: 50px;
-    font-size: 14px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 50px;
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
 button {
     color: white;
-    margin-top: 20px;
+    margin-top: 30px;
+
     background: #1DA1F2;
     height: 40px;
     border-radius: 20px;
     cursor: pointer;
-    font-weight: 900;
+    font-weight: 300;
+    font-size: 20px;
     box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
     transition: 0.5s;
 }
@@ -110,8 +119,48 @@ button:hover {
     box-shadow: none;
 }
 
-h1 {
-    position: absolute;
-    top: 0;
-    left: 0;
+* {
+    box-sizing: border-box;
+}
+
+.GameOver {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formPopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+}
+
+.formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.formContainer .cancel {
+    background-color: #cc0000;
+}
+
+.formContainer .btn:hover,
+.openButton:hover {
+    opacity: 1;
 }

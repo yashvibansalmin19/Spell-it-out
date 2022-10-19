@@ -7,31 +7,42 @@
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' />
     <link type="text/css" rel="stylesheet" href="style.css" />
     <title>Text to Speech</title>
+    <link rel="icon" type="image/png" href="../logo.png">
 </head>
 
 <body background="#ffffff">
     <div class="row1">
-        <h1 id="heading" style="font-family: 'Acme'; font-size: 60px; text-align: center; color:#1DA1F2;">
+        <h1 id="heading" style="font-family: 'Acme'; font-size: 60px; color:#1DA1F2; text-align: center;">
             SPELL IT OUT!
         </h1>
     </div>
 
-    <div class="row main-container">
+    <div class="main-container">
         <div class="column1">
-            <img src="/indexImage.jpg" alt="kids and Teacher" style="width:100%;"></img>
+            <img src="/indexImage.jpg" alt="kids and Teacher"></img>
         </div>
 
-        <div class="column2">
-            <div class="container">
 
-                <div class="inputs">
-                    <button id="start">Listen word!</button>
-                    <label>Enter Word: </label>
-                    <input type="text" id="answerText" placeholder="enter spelling..." />
+        <div class="container">
 
-                    <button id="submit">Submit</button>
-                </div>
+            <div class="inputs">
+                <button id="start">Listen word!</button>
+                <label>Enter the spelling of word: </label>
+                <input type="text" id="answerText" placeholder="enter spelling..." />
+
+                <button id="submit">Submit</button>
             </div>
+        </div>
+
+    </div>
+
+    <div class="GameOver">
+        <div class="formPopup" id="popupForm">
+            <form action="/index.ejs" class="formContainer">
+                <h2>GAME OVER!</h2>
+                <button type="submit" class="btn">Retry</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
         </div>
     </div>
 

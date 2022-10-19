@@ -12,5 +12,7 @@ client.connect();
 client.query("CREATE TABLE Attempts ( username TEXT, word TEXT, attempts INT)"
 );
 
-// client.query("CREATE TABLE Scores ( username TEXT, score INT)"
-// ); 
+client.query("CREATE TABLE Scores ( username TEXT, score INT)"
+);
+
+
